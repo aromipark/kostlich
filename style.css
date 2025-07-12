@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Inter:wght@400;700&display=swap');
+
+body {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    background-color: #FFFBF5;
+    color: #4C4A48;
+}
+
+.nutrient-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nutrient-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.modal {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.food-item, .draggable-food {
+    cursor: grab;
+    user-select: none;
+}
+
+.drop-zone {
+    transition: background-color 0.2s ease;
+}
+
+.drop-zone.over {
+    background-color: #FEF3C7; /* amber-100 */
+}
+
+.feedback {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.feedback.correct {
+    color: #22C55E; /* green-500 */
+}
+
+.feedback.incorrect {
+    color: #EF4444; /* red-500 */
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    height: 320px;
+    margin: auto;
+}

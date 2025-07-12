@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>영양소 수업</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리 몸을 만드는 영양소 어벤져스!</title>
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-orange-500 mb-2">우리 몸을 만드는 영양소 어벤져스!</h1>
+            <p class="text-lg text-stone-600">우리의 몸을 건강하게 지켜주는 6명의 영웅들을 만나보세요.</p>
+        </header>
+
+        <main>
+            <!-- Nutrient Hub Section -->
+            <section id="nutrient-hub" class="mb-16">
+                <h2 class="text-2xl font-bold text-center mb-2">🚀 6명의 영양소 영웅들</h2>
+                <p class="text-center text-stone-500 mb-8 max-w-2xl mx-auto">우리 몸을 구성하고 에너지를 내는 6명의 영양소 어벤져스를 소개합니다! 각 영웅의 카드를 클릭하면 그들의 특별한 능력(기능)과 좋아하는 음식(대표 식품)을 알아볼 수 있습니다.</p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+                    <!-- Nutrient Cards will be injected here by JS -->
+                </div>
+            </section>
+
+            <!-- Activity 1: Food Classification -->
+            <section id="activity-classify" class="mb-16 p-8 bg-amber-50 rounded-2xl shadow-lg">
+                <h2 class="text-2xl font-bold text-center mb-2">💪 음식의 힘! 역할을 찾아라!</h2>
+                <p class="text-center text-stone-500 mb-8 max-w-2xl mx-auto">아래 음식들을 우리 몸에서 하는 역할에 맞게 드래그하여 옮겨보세요. 음식 카드를 끌어다 맞는 역할 상자에 놓아주세요!</p>
+                <div id="food-deck" class="flex flex-wrap justify-center gap-3 mb-8">
+                    <!-- Draggable food items will be injected here -->
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div id="energy-zone" class="drop-zone bg-white p-6 rounded-xl border-2 border-dashed border-yellow-400 min-h-[120px]">
+                        <h3 class="text-xl font-bold mb-2 text-yellow-600">🔥 주력 에너지 (휘발유)</h3>
+                        <div class="flex flex-wrap gap-2 justify-center"></div>
+                    </div>
+                    <div id="builder-zone" class="drop-zone bg-white p-6 rounded-xl border-2 border-dashed border-sky-400 min-h-[120px]">
+                        <h3 class="text-xl font-bold mb-2 text-sky-600">🏗️ 몸의 건축가 (벽돌)</h3>
+                        <div class="flex flex-wrap gap-2 justify-center"></div>
+                    </div>
+                    <div id="regulator-zone" class="drop-zone bg-white p-6 rounded-xl border-2 border-dashed border-green-400 min-h-[120px]">
+                        <h3 class="text-xl font-bold mb-2 text-green-600">🔧 기능 조절맨 (윤활유)</h3>
+                        <div class="flex flex-wrap gap-2 justify-center"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Activity 2: Nutrient Detective -->
+            <section id="activity-detective" class="mb-16 p-8 bg-sky-50 rounded-2xl shadow-lg">
+                <h2 class="text-2xl font-bold text-center mb-2">🕵️‍♂️ 영양소 탐정이 되어보자!</h2>
+                <p class="text-center text-stone-500 mb-8 max-w-2xl mx-auto">몸에 이상이 생겼어요! 아래 '사건 파일'을 읽고, 문제를 일으킨 범인(부족한 영양소)을 찾아주세요.</p>
+                <div id="detective-game" class="bg-white p-6 rounded-xl max-w-2xl mx-auto">
+                    <div id="case-file" class="mb-4">
+                        <h3 class="font-bold text-lg mb-2">📜 사건 파일</h3>
+                        <p id="case-description" class="text-stone-700 h-16"></p>
+                    </div>
+                    <div id="options" class="grid grid-cols-2 gap-3">
+                        <!-- Options will be injected by JS -->
+                    </div>
+                    <div id="detective-feedback" class="mt-4 text-center font-bold"></div>
+                    <button id="next-case-btn" class="mt-4 w-full bg-sky-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-sky-600 transition hidden">다음 사건으로</button>
+                </div>
+            </section>
+
+            <!-- Activity 3: Build-a-Meal -->
+            <section id="activity-meal-builder" class="p-8 bg-green-50 rounded-2xl shadow-lg">
+                 <h2 class="text-2xl font-bold text-center mb-2">🍽️ 나만의 영양 식단 짜기</h2>
+                <p class="text-center text-stone-500 mb-8 max-w-3xl mx-auto">지금까지 배운 영양소 어벤져스들을 모두 활용하여 최고의 한 끼 식사를 만들어 보세요! 아래 음식들을 접시 위로 드래그하면, 오른쪽 '식품 구성 자전거' 차트가 실시간으로 바뀝니다.</p>
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="lg:w-1/2">
+                        <h3 class="font-bold text-center mb-4">음식 갤러리</h3>
+                        <div id="meal-food-gallery" class="grid grid-cols-3 sm:grid-cols-4 gap-3 p-4 bg-white rounded-lg">
+                           <!-- Meal food items will be injected -->
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 flex flex-col items-center">
+                        <h3 class="font-bold text-center mb-4">나의 접시 & 영양 밸런스</h3>
+                        <div id="plate" class="drop-zone w-full h-64 bg-white rounded-full border-4 border-dashed border-gray-300 flex flex-wrap items-center justify-center gap-2 p-4 mb-4">
+                            <span class="text-gray-400">이곳에 음식을 놓아주세요</span>
+                        </div>
+                         <div class="chart-container">
+                            <canvas id="meal-chart"></canvas>
+                        </div>
+                        <button id="reset-meal-btn" class="mt-4 bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition">다시 만들기</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal" class="modal fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto p-6 md:p-8 relative">
+            <button id="modal-close-btn" class="absolute top-4 right-4 text-3xl text-stone-500 hover:text-stone-800">&times;</button>
+            <div id="modal-content">
+                <!-- Modal content will be injected here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
